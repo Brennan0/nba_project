@@ -51,7 +51,7 @@ cd backend
 pip install -r requirements.txt
 ```
 
-> Use a supported Python 3.x version (3.9+). The requirements include version pins that vary at Python 3.13 for NumPy/scikit-learn compatibility.
+> Use a supported Python 3.x version (3.9+). The requirements include version pins that vary at Python 3.13 for NumPy/scikit-learn/pandas compatibility.
 
 ### Train models
 
