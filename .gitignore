@@ -1,0 +1,65 @@
+# .gitignore for NBA Win Predictor
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.Python
+*.egg-info/
+dist/
+build/
+.eggs/
+.venv/
+venv/
+env/
+*.env
+
+# Pytest
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Trained model artifacts – tracked in git for convenience but
+# exclude large intermediary files
+backend/models/*.tmp
+
+# Flutter / Dart
+flutter_app/.dart_tool/
+flutter_app/.flutter-plugins
+flutter_app/.flutter-plugins-dependencies
+flutter_app/build/
+flutter_app/.pub-cache/
+flutter_app/.packages
+flutter_app/pubspec.lock
+
+# Android
+flutter_app/android/.gradle/
+flutter_app/android/local.properties
+flutter_app/android/app/debug/
+flutter_app/android/app/profile/
+flutter_app/android/app/release/
+flutter_app/android/key.properties
+
+# iOS
+flutter_app/ios/.symlinks/
+flutter_app/ios/Flutter/Flutter.framework
+flutter_app/ios/Flutter/Flutter.podspec
+flutter_app/ios/Pods/
+flutter_app/ios/Runner.xcworkspace/
+flutter_app/ios/Podfile.lock
+
+# macOS
+flutter_app/macos/Flutter/GeneratedPluginRegistrant.swift
+
+# Web
+flutter_app/web/
+
+# IDE
+.idea/
+.vscode/
+*.iml
+
+# OS
+.DS_Store
+Thumbs.db
