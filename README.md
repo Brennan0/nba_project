@@ -46,10 +46,16 @@ nba_project/
 
 ### Setup
 
+Create and activate a conda environment with Python 3.12:
+
 ```bash
+conda create -n nba_project python=3.12
+conda activate nba_project
 cd backend
 pip install -r requirements.txt
 ```
+
+> **Python 3.12 Compatibility**: This project uses a conda environment with Python 3.12 to ensure compatibility with NumPy and scikit-learn. Versions 3.9+ are supported, but Python 3.13 has version compatibility constraints for these dependencies.
 
 ### Train models
 
