@@ -1,7 +1,9 @@
 nba_api==1.5.2
-scikit-learn==1.4.2
+scikit-learn==1.4.2; python_version < "3.13"
+scikit-learn==1.6.1; python_version >= "3.13"
 pandas==2.2.2
-numpy==1.26.4
+numpy==1.26.4; python_version < "3.13"
+numpy==2.2.6; python_version >= "3.13"
 flask==3.0.3
 flask-cors==4.0.1
 joblib==1.4.2
