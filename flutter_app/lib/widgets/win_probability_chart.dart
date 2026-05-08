@@ -125,7 +125,7 @@ class WinProbabilityChart extends StatelessWidget {
                     dotData: const FlDotData(show: false),
                     belowBarData: BarAreaData(
                       show: true,
-                      color: theme.colorScheme.primary.withAlpha(40),
+                      color: theme.colorScheme.primary.withAlpha(60),
                     ),
                   ),
                   // Mirror line for away team

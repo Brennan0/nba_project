@@ -115,6 +115,12 @@ def _generate_live_training_data(n_samples: int = 20_000) -> tuple[np.ndarray, n
     * A home team with a score advantage late in the game wins with very
       high probability.
 
+    ``n_samples`` defaults to 20 000 as a practical balance: large enough
+    for the calibrated logistic regression to converge smoothly across all
+    game-state combinations (period × score_diff), yet small enough to
+    keep training time under a second.  The value is exposed as a parameter
+    so callers can override it for faster tests or more thorough training.
+
     The true label is determined by simulating the remainder of the game
     1000 times using a Gaussian random walk.
     """

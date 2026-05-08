@@ -73,7 +73,7 @@ def games_today():
         games = get_todays_games()
     except Exception as exc:
         logger.error("Failed to fetch today's games: %s", exc)
-        return jsonify({"error": str(exc)}), 502
+        return jsonify({"error": "Unable to retrieve today's games"}), 502
 
     # Try to attach a default 50/50 prediction for each game so the app
     # always has something to display.
@@ -97,7 +97,7 @@ def game_live(game_id: str):
         box = get_live_box_score(game_id)
     except Exception as exc:
         logger.error("Failed to fetch box score for %s: %s", game_id, exc)
-        return jsonify({"error": str(exc)}), 502
+        return jsonify({"error": "Unable to retrieve live box score"}), 502
 
     teams = box.get("teams", [])
     if len(teams) < 2:
@@ -123,9 +123,8 @@ def game_live(game_id: str):
             away_team=away.get("team_abbreviation", "AWAY"),
         )
     except FileNotFoundError as exc:
-        return jsonify({"error": str(exc)}), 503
-
-    result["home_pts"] = home_pts
+        logger.error("Live model not found: %s", exc)
+        return jsonify({"error": "Live win-probability model is unavailable"}), 503
     result["away_pts"] = away_pts
     return jsonify(result)
 
@@ -161,7 +160,8 @@ def predict():
             away_team=away_team,
         )
     except FileNotFoundError as exc:
-        return jsonify({"error": str(exc)}), 503
+        logger.error("Win predictor model not found: %s", exc)
+        return jsonify({"error": "Win predictor model is unavailable"}), 503
 
     return jsonify(prediction)
 
