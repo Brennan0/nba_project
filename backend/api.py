@@ -125,6 +125,7 @@ def game_live(game_id: str):
     except FileNotFoundError as exc:
         logger.error("Live model not found: %s", exc)
         return jsonify({"error": "Live win-probability model is unavailable"}), 503
+    result["home_pts"] = home_pts
     result["away_pts"] = away_pts
     return jsonify(result)
 

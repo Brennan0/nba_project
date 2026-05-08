@@ -123,6 +123,12 @@ def _generate_live_training_data(n_samples: int = 20_000) -> tuple[np.ndarray, n
 
     The true label is determined by simulating the remainder of the game
     1000 times using a Gaussian random walk.
+
+    Returns
+    -------
+    tuple[np.ndarray, np.ndarray]
+        X : shape (n_samples, 3) — [score_diff, time_elapsed_fraction, period]
+        y : shape (n_samples,)  — 1 if home team wins, 0 otherwise
     """
     rng = np.random.default_rng(42)
     periods = rng.integers(1, 5, size=n_samples)
